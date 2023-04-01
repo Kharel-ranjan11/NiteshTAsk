@@ -3,7 +3,10 @@ import CreatableSelect from 'react-select/creatable'
 import './App.css'
 import { useState } from 'react'
 const App = () => {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
+  
+  
+  
   const options = [
     { value: 'jack', label: 'Jack', color: '#FF8B00' },
     { value: 'john', label: 'John', color: '#36B37E' },
@@ -96,7 +99,14 @@ const App = () => {
         />
       </div>
       <br /> <br />
-      
+//===================================================================================================================
+
+            
+            //             yaha sama matra ho Rahul ji...........option ko tala aru xa
+            
+            
+            
+//===================================================================================================================
       <section>
         <div className='tabs'>
           <div className='tabList'>
