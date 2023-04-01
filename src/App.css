@@ -1,8 +1,57 @@
-/* .select {
-  border-color: blue;
-  border: 1px solid red;
+* {
+  margin: 0;
+  padding: 0;
+}
+section {
+  display: flex;
+  justify-content: center;
+}
+.tabs {
+  background-color: rgb(169, 143, 109);
+  width: 400px;
   border-radius: 5px;
-} */
-*{
-  /* background-color: pink; */
+  padding: 20px;
+}
+.tabList {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+}
+.tabList > .tab {
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2px;
+}
+.tabList > .tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 1px;
+  border-radius: 100px;
+  background-color: rgb(55, 55, 92);
+}
+.tabList > .tab:focus::before {
+  width: 100%;
+  background-color: rgb(8, 8, 163);
+}
+.active {
+  display: none;
+}
+.inactive {
+  display: grid;
+}
+.activeTab {
+  transition: 0.2s ease-in-out;
+  color: red;
+}
+.inactiveTab {
+  transition: 0.2s ease-in-out;
+  color: whitesmoke;
+}
+.player {
+  display: flex;
+  justify-content: center;
+  margin: 4rem;
 }
