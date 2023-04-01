@@ -9,10 +9,12 @@ const App = () => {
   const colorStyles = {
     control: styles => ({
       ...styles,
-      borderColor:'#f21d3d',
+      borderColor: styles.isFocused ? 'red' : 'red',
+      boxShadow: styles.isFocused ? '0 0 20px transparent' : '0 0 2px transparent',
+      // borderColor: '#f21d3d',
       '&:hover': {
-        borderColor: styles.isFocused ? '#f21d3d' : '#f21d3d',
-        boxShadow: styles.isFocused ? '0 0 0 #f21d3d' : '0 0 2px #f21d3d'
+        borderColor: 'red'
+        // boxShadow: styles.isFocused ? '0 0 0 red' : '0 0 2px red'
       }
     }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
