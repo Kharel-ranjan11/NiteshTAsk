@@ -53,5 +53,34 @@ section {
 .player {
   display: flex;
   justify-content: center;
-  margin: 4rem;
+  margin: 4rem ;
+  background-color: rgba(19, 18, 17, 0.251);
+}
+/* ================Form css======================================= */
+.form {
+  background-color: rgba(171, 222, 231, 0.819);
+  margin: 3rem;
+  position: relative;
+  width: 600px;
+  height: 200px;
+}
+.content {
+  background-color: yellow;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 100%;
+}
+.Forms {
+  background-color: rgb(70, 70, 49);
+  position: absolute;
+  right: 0;
+  width: 300px;
+  height: 100%;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
 }

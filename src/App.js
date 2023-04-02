@@ -1,8 +1,33 @@
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Modal from '@mui/material/Modal'
+import { useState } from 'react'
 import ReactPlayer from 'react-player/youtube'
 import CreatableSelect from 'react-select/creatable'
 import './App.css'
-import { useState } from 'react'
+import { ChartS } from './components/Chart'
+import { ProgressBar } from './components/Progress'
+import { FormStep } from './components/Formstep'
+// import ReactPlayer from 'react-player'
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4
+}
 const App = () => {
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+  // =======For Login and  sing UP form=====================================
+  const [Bool, setBool] = useState(false)
+  console.log(Bool)
+  // =======================================================================
   const [index, setIndex] = useState(0)
   const options = [
     { value: 'jack', label: 'Jack', color: '#FF8B00' },
@@ -85,6 +110,9 @@ const App = () => {
   // console.log(colorStyles)
   return (
     <>
+      <ChartS />
+      <ProgressBar />
+      <FormStep />
       <div style={{ width: '300px', margin: '3rem' }}>
         <CreatableSelect
           options={options}
@@ -96,7 +124,6 @@ const App = () => {
         />
       </div>
       <br /> <br />
-      
       <section>
         <div className='tabs'>
           <div className='tabList'>
@@ -154,9 +181,74 @@ const App = () => {
           </div>
         </div>
       </section>
-      <div className='player'>
-        <ReactPlayer url='https://www.youtube.com/watch?v=hp_-RlwNg04' volume={0.5} />
+      {/* <div className='player'>
+        <ReactPlayer
+          url='https://www.youtube.com/watch?v=hp_-RlwNg04'
+          volume={0.5}
+        />
+      </div> */}
+      <br /> <br />
+      {/* =================================================================================================== */}
+      {/* =================================================================================================== */}
+      {/* < Login Form > */}
+      {/* =================================================================================================== */}
+      {/* =================================================================================================== */}
+      <div className='form'>
+        <div>
+          <div className={Bool ? 'content' : 'content'}>
+            <h3>Welcome Back</h3>
+            <span>
+              To keep connected with us please login with your personal details
+            </span>
+            <button onClick={() => setBool(!Bool)}>Login</button>
+          </div>
+
+          <div className='Forms'>
+            <form autoComplete='off' method='get'>
+              <label htmlFor='name'>Name</label>
+              <input
+                type='text'
+                name='name'
+                id='name'
+                placeholder='Enter Name...'
+              />
+              <label htmlFor='Email'>Email</label>
+              <input
+                type='email'
+                name='email'
+                id='email'
+                placeholder='Enter Email...'
+              />
+              <label htmlFor='Password'>Password</label>
+              <input
+                type='password'
+                name='password'
+                id='password'
+                placeholder='Enter Password...'
+              />
+              <input type='submit' value='Login' />
+            </form>
+          </div>
+        </div>
       </div>
+      <br />
+      <br />
+      <Button onClick={handleOpen}>Play Video</Button>
+      <Modal
+        sx={{ background: 'pink' }}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
+        <Box>
+          <ReactPlayer
+            style={{ background: 'red', width: '30px' }}
+            url='https://www.youtube.com/watch?v=hp_-RlwNg04'
+            volume={0.5}
+          />
+        </Box>
+      </Modal>
     </>
   )
 }
