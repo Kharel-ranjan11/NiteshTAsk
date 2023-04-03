@@ -1,16 +1,18 @@
 import { TextField } from '@mui/material'
 import React from 'react'
 
-export const FormFirstStep = () => {
+export const FormFirstStep = ({ handleChange }) => {
   return (
-    <div style={{padding:'5px'}}>
-      <h2>First Form</h2> 
+    <div style={{ padding: '5px' }}>
+      <h2>First Form</h2>
       <br />
       <TextField
         id='outlined-basic'
-        label='Name'
+        label='FirsName'
         variant='outlined'
         placeholder='Enter Name....'
+        onChange={handleChange}
+        name='FirsName'
       />
       <br />
       <TextField
@@ -19,6 +21,8 @@ export const FormFirstStep = () => {
         type='password'
         variant='filled'
         placeholder='Enter PAssword....'
+        onChange={handleChange}
+        name='password'
       />
       <br />
       <TextField
@@ -27,6 +31,8 @@ export const FormFirstStep = () => {
         type='number'
         variant='standard'
         placeholder='Enter Number....'
+        name='Number'
+        onChange={handleChange}
       />
     </div>
   )

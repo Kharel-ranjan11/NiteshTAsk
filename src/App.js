@@ -22,6 +22,12 @@ const style = {
 }
 const App = () => {
   const [index, setIndex] = useState(0)
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+  // =======For Login and  sing UP form=====================================
+  const [Bool, setBool] = useState(false)
+  console.log(Bool)
   const options = [
     { value: 'jack', label: 'Jack', color: '#FF8B00' },
     { value: 'john', label: 'John', color: '#36B37E' },
@@ -105,6 +111,7 @@ const App = () => {
     <>
       <ChartS />
       <ProgressBar />
+     
       <FormStep />
       <div style={{ width: '300px', margin: '3rem' }}>
         <CreatableSelect
@@ -117,7 +124,6 @@ const App = () => {
         />
       </div>
       <br /> <br />
-      
       <section>
         <div className='tabs'>
           <div className='tabList'>

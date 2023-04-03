@@ -1,29 +1,37 @@
 import React from 'react'
 import { TextField } from '@mui/material'
 
-export const FormSecondStep = () => {
+export const FormSecondStep = ({ handleChange }) => {
   return (
-    <div style={{padding:'5px'}}>
+    <div style={{ padding: '5px' }}>
       <h2>Second Form</h2>
       <TextField
         id='outlined-basic'
-        label='Name'
+        label='LastName'
         variant='outlined'
-        placeholder='Enter Name....'
-      /> <br />
+        placeholder='Enter LastName....'
+        onChange={handleChange}
+        name='LastName'
+      />{' '}
+      <br />
       <TextField
         id='filled-basic'
-        label='Password'
+        label='ConfirmPassword'
         type='password'
         variant='filled'
-        placeholder='Enter PAssword....'
-      /><br />
+        placeholder='Enter ConfirmPassword....'
+        onChange={handleChange}
+        name='ConfirmPassword'
+      />
+      <br />
       <TextField
         id='standard-basic'
-        label='Number'
+        label='Contact'
         type='number'
         variant='standard'
-        placeholder='Enter Number....'
+        placeholder='Enter Contact....'
+        onChange={handleChange}
+        name='Contact'
       />
     </div>
   )

@@ -12,21 +12,34 @@ const steps = ['Form One', 'Form Two', 'Form Three']
 
 export const FormStep = () => {
   const [number, setNumber] = useState(0)
+  const [input, setInput] = useState({})
+  const handleChange = e => {
+    setInput(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    console.log('Target Element......', e.target.value)
+  }
   function getForm () {
     switch (number) {
       case 0:
-        return <FormFirstStep />
+        return <FormFirstStep handleChange={handleChange} />
       case 1:
-        return <FormSecondStep />
+        return <FormSecondStep handleChange={handleChange} />
       case 2:
-        return <FormThirdStep />
+        return <FormThirdStep handleChange={handleChange} />
 
       default:
     }
   }
+  // steps.length <= number ? setInput('') : setInput({})
   return (
     <>
-      <Paper sx={{ width: '400px', margin: '4rem', padding: '10px' }}>
+      <Paper
+        sx={{
+          width: '400px',
+          margin: '4rem',
+          padding: '10px',
+          overflow: 'scroll'
+        }}
+      >
         <Box sx={{ width: '100%' }}>
           <Stepper activeStep={number} alternativeLabel>
             {steps.map(label => (
@@ -36,7 +49,15 @@ export const FormStep = () => {
             ))}
           </Stepper>
         </Box>
-        <div style={{background:'#e1bee7',display:'grid',justifyContent:'center'}}>{getForm()}</div>
+        <div
+          style={{
+            background: '#e1bee7',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          {getForm()}
+        </div>
         <Button
           onClick={() => setNumber(prev => prev + 1)}
           disabled={steps.length <= number}
@@ -46,6 +67,7 @@ export const FormStep = () => {
         {steps.length <= number && (
           <Button onClick={() => setNumber(0)}>Reset</Button>
         )}
+        <div className='inputData'>{JSON.stringify(input)}</div>
       </Paper>
     </>
   )
