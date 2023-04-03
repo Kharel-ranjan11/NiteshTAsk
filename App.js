@@ -21,6 +21,13 @@ const style = {
   p: 4
 }
 const App = () => {
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+  // =======For Login and  sing UP form=====================================
+  const [Bool, setBool] = useState(false)
+  console.log(Bool)
+  // =======================================================================
   const [index, setIndex] = useState(0)
   const options = [
     { value: 'jack', label: 'Jack', color: '#FF8B00' },
@@ -117,7 +124,6 @@ const App = () => {
         />
       </div>
       <br /> <br />
-      
       <section>
         <div className='tabs'>
           <div className='tabList'>
