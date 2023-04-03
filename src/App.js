@@ -1,6 +1,3 @@
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Modal from '@mui/material/Modal'
 import { useState } from 'react'
 import ReactPlayer from 'react-player/youtube'
 import CreatableSelect from 'react-select/creatable'
@@ -9,23 +6,9 @@ import { ChartS } from './components/Chart'
 import { ProgressBar } from './components/Progress'
 import { FormStep } from './components/Formstep'
 import ReactSwiper from './components/Swiper'
-// import ReactPlayer from 'react-player'
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4
-}
+import { ReactLightBox } from './components/ReactLightBox'
 const App = () => {
   const [index, setIndex] = useState(0)
-  const [open, setOpen] = useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
   // =======For Login and  sing UP form=====================================
   const [Bool, setBool] = useState(false)
   console.log(Bool)
@@ -110,6 +93,10 @@ const App = () => {
   // console.log(colorStyles)
   return (
     <>
+    <div className="lightBox" style={{margin:'3rem 0px',width:'600px'}}>
+
+    <ReactLightBox/>
+    </div>
       <ChartS />
       <ProgressBar />
      <div className="swiper" style={{width:'700px'}}>
@@ -236,22 +223,13 @@ const App = () => {
       </div>
       <br />
       <br />
-      <Button onClick={handleOpen}>Play Video</Button>
-      <Modal
-        sx={{ background: 'pink' }}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'
-      >
-        <Box>
+      
           <ReactPlayer
             style={{ background: 'red', width: '30px' }}
             url='https://www.youtube.com/watch?v=hp_-RlwNg04'
             volume={0.5}
           />
-        </Box>
-      </Modal>
+       
     </>
   )
 }
