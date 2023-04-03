@@ -8,6 +8,7 @@ import './App.css'
 import { ChartS } from './components/Chart'
 import { ProgressBar } from './components/Progress'
 import { FormStep } from './components/Formstep'
+import ReactSwiper from './components/Swiper'
 // import ReactPlayer from 'react-player'
 const style = {
   position: 'absolute',
@@ -111,7 +112,9 @@ const App = () => {
     <>
       <ChartS />
       <ProgressBar />
-     
+     <div className="swiper" style={{width:'700px'}}>
+      <ReactSwiper/>
+     </div>
       <FormStep />
       <div style={{ width: '300px', margin: '3rem' }}>
         <CreatableSelect
