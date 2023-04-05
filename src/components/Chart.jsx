@@ -1,4 +1,4 @@
-import { ArcElement, Chart, Tooltip, Legend } from 'chart.js'
+import { ArcElement, Chart, Tooltip } from 'chart.js'
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2'
 Chart.register(ArcElement, Tooltip)
@@ -28,6 +28,15 @@ const config = {
     rotation: 360, //rotating chart at specific degree i.e. 50deg ,60 ......360deg
     circumference: 360, //Sweep to allow arcs to cove 0 .......360deg
     animateRotate: false
+    // animations: {
+    //   tension: {
+    //     duration: 1000,
+    //     easing: 'linear',
+    //     from: 1,
+    //     to: 0,
+    //     loop: true
+    //   }
+    // }
   }
 }
 

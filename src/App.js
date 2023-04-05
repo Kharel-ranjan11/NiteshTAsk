@@ -7,6 +7,8 @@ import { ProgressBar } from './components/Progress'
 import { FormStep } from './components/Formstep'
 import ReactSwiper from './components/Swiper'
 import { ReactLightBox } from './components/ReactLightBox'
+import { Particle } from './components/Particels/Particle'
+import { ReactConfetti } from './components/Particels/Confetti'
 const App = () => {
   const [index, setIndex] = useState(0)
   // =======For Login and  sing UP form=====================================
@@ -93,15 +95,14 @@ const App = () => {
   // console.log(colorStyles)
   return (
     <>
-    <div className="lightBox" style={{margin:'3rem 0px',width:'600px'}}>
-
-    <ReactLightBox/>
-    </div>
+      <div className='lightBox' style={{ margin: '3rem 0px', width: '600px' }}>
+        <ReactLightBox />
+      </div>
       <ChartS />
       <ProgressBar />
-     <div className="swiper" style={{width:'700px'}}>
-      <ReactSwiper/>
-     </div>
+      <div className='swiper' style={{ width: '700px' }}>
+        <ReactSwiper />
+      </div>
       <FormStep />
       <div style={{ width: '300px', margin: '3rem' }}>
         <CreatableSelect
@@ -183,7 +184,7 @@ const App = () => {
       {/* < Login Form > */}
       {/* =================================================================================================== */}
       {/* =================================================================================================== */}
-      <div className='form'>
+      {/* <div className='form'>
         <div>
           <div className={Bool ? 'content' : 'content'}>
             <h3>Welcome Back</h3>
@@ -220,16 +221,23 @@ const App = () => {
             </form>
           </div>
         </div>
+      </div> */}
+      <br />
+      <br />
+      <ReactPlayer
+        style={{ background: 'red', width: '30px' }}
+        url='https://www.youtube.com/watch?v=hp_-RlwNg04'
+        volume={0.5}
+      />
+      <div
+        className='particle'
+        style={{ width: '500px',overflow:'hidden',position:'absolute',zIndex:'-99' }}
+      >
+        <Particle />
       </div>
-      <br />
-      <br />
-      
-          <ReactPlayer
-            style={{ background: 'red', width: '30px' }}
-            url='https://www.youtube.com/watch?v=hp_-RlwNg04'
-            volume={0.5}
-          />
-       
+      <div style={{width:'400px'}}>
+        <ReactConfetti/>
+      </div>
     </>
   )
 }
